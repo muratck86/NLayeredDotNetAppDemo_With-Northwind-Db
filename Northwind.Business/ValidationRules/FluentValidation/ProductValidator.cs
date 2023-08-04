@@ -20,7 +20,7 @@ namespace Northwind.Business.ValidationRules.FluentValidation
 
             RuleFor(p => p.UnitPrice).GreaterThan(10).When(p => p.CategoryId == 2);
 
-            RuleFor(p => p.ProductName).Must(StartsWithA).WithMessage("Ürün adları 'A' harfi ile bağlamalı");
+            RuleFor(p => p.ProductName).Must(StartsWithA).WithMessage("Ürün adları 'A' harfi ile başlamalı");
 
         }
 

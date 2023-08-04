@@ -21,3 +21,7 @@ C:\Users\kurtm\source\repos\Tutorials\NLayeredDotNetAppDemo\Northwind.WebFormsUI
 C:\Users\kurtm\source\repos\Tutorials\NLayeredDotNetAppDemo\Northwind.WebFormsUI\obj\Debug\Northwind.WebFormsUI.pdb
 C:\Users\kurtm\source\repos\Tutorials\NLayeredDotNetAppDemo\Northwind.WebFormsUI\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\kurtm\source\repos\Tutorials\NLayeredDotNetAppDemo\Northwind.WebFormsUI\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kurtm\source\repos\Tutorials\NLayeredDotNetAppDemo\Northwind.WebFormsUI\bin\Debug\FluentValidation.dll
+C:\Users\kurtm\source\repos\Tutorials\NLayeredDotNetAppDemo\Northwind.WebFormsUI\bin\Debug\FluentValidation.xml
+C:\Users\kurtm\source\repos\Tutorials\NLayeredDotNetAppDemo\Northwind.WebFormsUI\bin\Debug\Ninject.dll
+C:\Users\kurtm\source\repos\Tutorials\NLayeredDotNetAppDemo\Northwind.WebFormsUI\bin\Debug\Ninject.xml

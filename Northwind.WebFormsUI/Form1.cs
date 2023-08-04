@@ -1,5 +1,6 @@
 ﻿using Northwind.Business.Abstract;
 using Northwind.Business.Concrete;
+using Northwind.Business.DependencyResolvers.Ninject;
 using Northwind.DataAccess.Concrete.EntityFramework;
 using Northwind.Entities.Concrete;
 using System;
@@ -21,8 +22,8 @@ namespace Northwind.WebFormsUI
         public Form1()
         {
             InitializeComponent();
-            _productService = new ProductManager(new EfProductDal());
-            _categoryService = new CategoryManager(new EfCategoryDal());
+            _productService = InstanceFactory.GetInstance<IProductService>();
+            _categoryService = InstanceFactory.GetInstance<ICategoryService>();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -118,21 +119,29 @@ namespace Northwind.WebFormsUI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var product = new Product
+            try
             {
-                ProductId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
-                ProductName = tbxProductNameUpdate.Text,
-                CategoryId = Convert.ToInt32(cbxCategoryIdUpdate.SelectedValue),
-                QuantityPerUnit = tbxQuantityPerUnitUpdate.Text,
-                UnitPrice = Convert.ToDecimal(tbxUnitPriceUpdate.Text),
-                UnitsInStock = Convert.ToInt16(tbxUnitsInStockUpdate.Text)
-            };
+                var product = new Product
+                {
+                    ProductId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
+                    ProductName = tbxProductNameUpdate.Text,
+                    CategoryId = Convert.ToInt32(cbxCategoryIdUpdate.SelectedValue),
+                    QuantityPerUnit = tbxQuantityPerUnitUpdate.Text,
+                    UnitPrice = Convert.ToDecimal(tbxUnitPriceUpdate.Text),
+                    UnitsInStock = Convert.ToInt16(tbxUnitsInStockUpdate.Text)
+                };
 
-            _productService.Update(product);
-            LoadCategoryUpdate();
-            LoadProducts();
-            MessageBox.Show("Ürün güncellendi.");
-            ClearUpdateTextboxes();
+                _productService.Update(product);
+                LoadCategoryUpdate();
+                LoadProducts();
+                MessageBox.Show("Ürün güncellendi.");
+                ClearUpdateTextboxes();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
