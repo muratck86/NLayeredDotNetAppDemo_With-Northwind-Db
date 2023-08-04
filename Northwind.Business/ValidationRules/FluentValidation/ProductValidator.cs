@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Northwind.Business.ValidationRules.FluentValidation
 {
-    public class ProductValidatior : AbstractValidator<Product>
+    public class ProductValidator : AbstractValidator<Product>
     {
-        public ProductValidatior()
+        public ProductValidator()
         {
             RuleFor(p => p.ProductName).NotEmpty();
             RuleFor(p => p.CategoryId).NotEmpty().WithMessage("Kategori boş olamaz.");
@@ -20,7 +20,7 @@ namespace Northwind.Business.ValidationRules.FluentValidation
 
             RuleFor(p => p.UnitPrice).GreaterThan(10).When(p => p.CategoryId == 2);
 
-            RuleFor(p => p.ProductName).Must(StartsWithA);
+            RuleFor(p => p.ProductName).Must(StartsWithA).WithMessage("Ürün adları 'A' harfi ile bağlamalı");
 
         }
 

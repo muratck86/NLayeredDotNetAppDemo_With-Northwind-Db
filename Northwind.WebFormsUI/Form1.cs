@@ -138,19 +138,26 @@ namespace Northwind.WebFormsUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var product = new Product
+            try
             {
-                ProductName = tbxProductNameAdd.Text,
-                CategoryId = Convert.ToInt32(cbxCategoryIdAdd.SelectedValue),
-                QuantityPerUnit = tbxQuantityPerUnitAdd.Text,
-                UnitPrice = Convert.ToDecimal(tbxUnitPriceAdd.Text),
-                UnitsInStock = Convert.ToInt16(tbxUnitsInStockAdd.Text)
-            };
+                var product = new Product
+                {
+                    ProductName = tbxProductNameAdd.Text,
+                    CategoryId = Convert.ToInt32(cbxCategoryIdAdd.SelectedValue),
+                    QuantityPerUnit = tbxQuantityPerUnitAdd.Text,
+                    UnitPrice = Convert.ToDecimal(tbxUnitPriceAdd.Text),
+                    UnitsInStock = Convert.ToInt16(tbxUnitsInStockAdd.Text)
+                };
+                _productService.Add(product);
+                LoadProducts();
+                MessageBox.Show("Ürün eklendi.");
+                ClearAddTextboxes();
+            }
+            catch (Exception ex)
+            {
 
-            _productService.Add(product);
-            LoadProducts();
-            MessageBox.Show("Ürün eklendi.");
-            ClearAddTextboxes();
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ClearAddTextboxes()

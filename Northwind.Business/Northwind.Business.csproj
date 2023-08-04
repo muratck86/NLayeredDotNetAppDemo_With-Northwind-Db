@@ -49,7 +49,7 @@
     <Compile Include="Concrete\CategoryManager.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidationRules\FluentValidation\ProductValidatior.cs" />
+    <Compile Include="ValidationRules\FluentValidation\ProductValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
